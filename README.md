@@ -1,4 +1,4 @@
-# � Angular Firebase Todo App
+# 📋 Angular Firebase Todo App
 
 [![Angular](https://img.shields.io/badge/Angular-18-DD0031?style=for-the-badge&logo=angular)](https://angular.dev)
 [![Firebase](https://img.shields.io/badge/Firebase-10.14.1-FFCA28?style=for-the-badge&logo=firebase)](https://firebase.google.com)
@@ -453,3 +453,37 @@ Este proyecto está bajo la **Licencia MIT**. Consulta el archivo [LICENSE](LICE
 Made with ❤️ by [Tu Nombre]
 
 </div>
+
+---
+
+## 📚 Información del Proyecto Académico
+
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/z-HfVygr)
+
+### 🎯 **Objetivo del Proyecto**
+Desarrollo de una aplicación Todo completa usando **Angular 18** y **Firebase**, siguiendo las mejores prácticas de desarrollo moderno y documentación profesional.
+
+### 📖 **Repositorio de Referencia**
+- **Guía base**: [angular-firebase-todo-app](https://github.com/maximofernandezriera/angular-firebase-todo-app/blob/main/README.md)
+- **Tecnologías**: Angular 18 + Firebase Firestore + TypeScript
+
+### 📋 **Formato de Entrega**
+- ✅ **Proyecto documentado** en este repositorio
+- ✅ **Código fuente completo** con nueva arquitectura y diseño
+- ✅ **Imágenes del funcionamiento** - Capturas del proyecto en local
+- ✅ **Documentación técnica** - README completo con instalación y uso
+- ✅ **Mejoras implementadas** - Rediseño UI/UX moderno
+
+### 📅 **Fecha de Entrega**
+**Lunes 13 de octubre a las 12:00h** ✨
+
+---
+
+### 🏆 **Estado del Proyecto: ¡COMPLETADO!**
+
+**✅ Todas las características implementadas:**
+- Aplicación Angular completamente funcional
+- Integración Firebase Firestore en tiempo real  
+- Diseño moderno con glassmorphism y animaciones
+- Documentación completa con capturas
+- Código optimizado y siguiendo mejores prácticas
