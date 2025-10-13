@@ -37,6 +37,12 @@ export class TaskFormComponent {
   /** Indica si el formulario se está enviando actualmente */
   isSubmitting: boolean = false;
 
+  /** Controla si se muestra la sección de descripción */
+  showDescription: boolean = false;
+
+  /** Prioridad de la tarea */
+  priority: 'high' | 'normal' | 'low' = 'normal';
+
   /**
    * Constructor - Inyecta el TaskService para operaciones con Firebase
    */
@@ -60,7 +66,8 @@ export class TaskFormComponent {
       // Crear objeto de tarea con datos limpios
       const newTask: CreateTaskRequest = {
         title: this.taskTitle.trim(),           // Título sin espacios extra
-        description: this.taskDescription.trim() // Descripción sin espacios extra
+        description: this.taskDescription.trim(), // Descripción sin espacios extra
+        priority: this.priority                 // Prioridad seleccionada
       };
 
       // Guardar tarea en Firebase
@@ -92,5 +99,21 @@ export class TaskFormComponent {
   onCancel(): void {
     this.taskTitle = '';       // Limpiar título
     this.taskDescription = ''; // Limpiar descripción
+    this.showDescription = false; // Ocultar sección de descripción
+    this.priority = 'normal'; // Resetear prioridad
+  }
+
+  /**
+   * Alterna la visibilidad de la sección de descripción
+   */
+  toggleDescription(): void {
+    this.showDescription = !this.showDescription;
+  }
+
+  /**
+   * Establece la prioridad de la tarea
+   */
+  setPriority(priority: 'high' | 'normal' | 'low'): void {
+    this.priority = priority;
   }
 }

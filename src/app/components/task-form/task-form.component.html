@@ -1,54 +1,108 @@
 <div class="task-form-container">
-  <h2>Agregar Nueva Tarea</h2>
-  
-  <form (ngSubmit)="onSubmit()" #taskForm="ngForm" class="task-form">
-    <div class="form-group">
-      <label for="taskTitle">Título *</label>
-      <input
-        type="text"
-        id="taskTitle"
-        name="taskTitle"
-        [(ngModel)]="taskTitle"
-        required
-        maxlength="100"
-        placeholder="Ingresa el título de la tarea"
-        class="form-control"
-        [disabled]="isSubmitting"
-      />
-    </div>
-
-    <div class="form-group">
-      <label for="taskDescription">Descripción</label>
-      <textarea
-        id="taskDescription"
-        name="taskDescription"
-        [(ngModel)]="taskDescription"
-        maxlength="500"
-        placeholder="Descripción opcional de la tarea"
-        class="form-control"
-        rows="3"
-        [disabled]="isSubmitting"
-      ></textarea>
-    </div>
-
-    <div class="form-actions">
-      <button
-        type="submit"
-        class="btn btn-primary"
-        [disabled]="!taskTitle.trim() || isSubmitting"
-      >
-        <span *ngIf="isSubmitting" class="spinner"></span>
-        {{ isSubmitting ? 'Agregando...' : 'Agregar Tarea' }}
-      </button>
+  <form (ngSubmit)="onSubmit()" #taskForm="ngForm" class="modern-form">
+    
+    <!-- Input Group -->
+    <div class="input-group">
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="taskTitle"
+          name="taskTitle"
+          [(ngModel)]="taskTitle"
+          required
+          maxlength="100"
+          placeholder="¿Qué necesitas hacer?"
+          class="modern-input primary-input"
+          [disabled]="isSubmitting"
+        />
+        <div class="input-icon">✏️</div>
+      </div>
       
-      <button
-        type="button"
-        class="btn btn-secondary"
-        (click)="onCancel()"
-        [disabled]="isSubmitting"
-      >
-        Cancelar
-      </button>
+      <div class="expandable-section" [class.expanded]="showDescription">
+        <div class="input-wrapper">
+          <textarea
+            id="taskDescription"
+            name="taskDescription"
+            [(ngModel)]="taskDescription"
+            maxlength="500"
+            placeholder="Añade algunos detalles..."
+            class="modern-input description-input"
+            rows="2"
+            [disabled]="isSubmitting"
+          ></textarea>
+          <div class="input-icon">💭</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Bar -->
+    <div class="action-bar">
+      <div class="quick-actions">
+        <button
+          type="button"
+          class="quick-btn"
+          (click)="toggleDescription()"
+          [class.active]="showDescription"
+        >
+          <span class="icon">📝</span>
+          Descripción
+        </button>
+        
+        <button
+          type="button"
+          class="quick-btn"
+          (click)="setPriority('high')"
+          [class.active]="priority === 'high'"
+        >
+          <span class="icon">🔥</span>
+          Urgente
+        </button>
+        
+        <button
+          type="button"
+          class="quick-btn"
+          (click)="setPriority('normal')"
+          [class.active]="priority === 'normal'"
+        >
+          <span class="icon">⭐</span>
+          Normal
+        </button>
+      </div>
+
+      <div class="submit-section">
+        <button
+          type="button"
+          class="btn-circle btn-cancel"
+          (click)="onCancel()"
+          [disabled]="isSubmitting"
+          title="Cancelar"
+        >
+          ✕
+        </button>
+        
+        <button
+          type="submit"
+          class="btn-circle btn-submit"
+          [disabled]="!taskTitle.trim() || isSubmitting"
+          [class.loading]="isSubmitting"
+          title="Agregar tarea"
+        >
+          <span *ngIf="!isSubmitting" class="icon">+</span>
+          <span *ngIf="isSubmitting" class="spinner-circle"></span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Character Counter -->
+    <div class="form-footer" *ngIf="taskTitle.length > 0">
+      <div class="char-counter">
+        <span [class.warning]="taskTitle.length > 80">
+          {{ taskTitle.length }}/100
+        </span>
+      </div>
+      <div class="tips">
+        <span class="tip">💡 Mantén el título claro y conciso</span>
+      </div>
     </div>
   </form>
 </div>

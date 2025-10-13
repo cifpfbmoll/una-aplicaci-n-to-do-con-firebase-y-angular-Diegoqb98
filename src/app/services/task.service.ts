@@ -33,6 +33,7 @@ export class TaskService {
     const newTask = {
       title: taskData.title,
       description: taskData.description || '',
+      priority: taskData.priority || 'normal',
       completed: false,
       createdAt: new Date(),
       updatedAt: new Date()

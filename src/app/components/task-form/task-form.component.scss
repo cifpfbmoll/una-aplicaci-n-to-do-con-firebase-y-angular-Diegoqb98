@@ -1,45 +1,290 @@
 .task-form-container {
-  padding: var(--spacing-2xl);
-  background: var(--bg-primary);
+  padding: 0;
+  background: transparent;
 }
 
-.task-form-container h2 {
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-lg);
-  text-align: center;
-  font-size: 1.5rem;
-}
-
-.task-form {
+.modern-form {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
 }
 
-.form-actions {
+/* Input Styling */
+.input-group {
   display: flex;
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-md);
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.form-actions .btn {
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.modern-input {
+  width: 100%;
+  padding: 1rem 3.5rem 1rem 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  transition: all var(--transition-normal);
+  resize: none;
+}
+
+.primary-input {
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 1.25rem 3.5rem 1.25rem 1.25rem;
+}
+
+.modern-input:focus {
+  outline: none;
+  background: white;
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.15);
+  transform: translateY(-2px);
+}
+
+.modern-input::placeholder {
+  color: var(--gray-400);
+  font-weight: 400;
+}
+
+.input-icon {
+  position: absolute;
+  right: 1rem;
+  font-size: 1.25rem;
+  opacity: 0.6;
+  pointer-events: none;
+  transition: all var(--transition-fast);
+}
+
+.input-wrapper:focus-within .input-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Expandable Description */
+.expandable-section {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-normal) ease-out;
+}
+
+.expandable-section.expanded {
+  max-height: 200px;
+}
+
+/* Action Bar */
+.action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.quick-actions {
+  display: flex;
+  gap: 0.5rem;
   flex: 1;
 }
 
+.quick-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.quick-btn:hover {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.quick-btn.active {
+  background: var(--primary-gradient);
+  border-color: var(--primary-color);
+  color: white;
+  box-shadow: var(--shadow-colored);
+}
+
+.quick-btn .icon {
+  font-size: 1rem;
+}
+
+/* Submit Section */
+.submit-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-cancel {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--gray-500);
+  backdrop-filter: blur(10px);
+}
+
+.btn-cancel:hover:not(:disabled) {
+  background: var(--danger-light);
+  color: var(--danger-color);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.btn-submit {
+  background: var(--primary-gradient);
+  color: white;
+  box-shadow: var(--shadow-colored);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-submit:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: var(--shadow-xl), var(--shadow-colored);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-submit .icon {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+/* Loading Spinner */
+.spinner-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Form Footer */
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  font-size: 0.875rem;
+}
+
+.char-counter {
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.char-counter .warning {
+  color: var(--warning-color);
+}
+
+.tips {
+  color: var(--gray-400);
+}
+
+.tip {
+  font-style: italic;
+}
+
+/* Animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Loading State */
+.btn-submit.loading {
+  pointer-events: none;
+}
+
+.btn-submit.loading::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: conic-gradient(from 0deg, transparent, var(--primary-color), transparent);
+  border-radius: 50%;
+  animation: rotate 2s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 /* Responsive Design */
-@media (max-width: 480px) {
-  .task-form-container {
-    padding: var(--spacing-lg);
-  }
-  
-  .task-form-container h2 {
-    font-size: 1.25rem;
-  }
-  
-  .form-actions {
+@media (max-width: 768px) {
+  .action-bar {
     flex-direction: column;
+    gap: 1rem;
   }
   
-  .form-actions .btn {
-    width: 100%;
+  .quick-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .submit-section {
+    justify-content: center;
+  }
+  
+  .form-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-btn {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+  }
+  
+  .btn-circle {
+    width: 44px;
+    height: 44px;
   }
 }

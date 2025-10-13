@@ -1,17 +1,74 @@
 <div class="app-container">
-  <header class="app-header">
-    <h1>{{ title }}</h1>
-    <p>Gestiona tus tareas de manera eficiente</p>
-  </header>
-
-  <main class="app-main">
-    <div class="form-section">
-      <app-task-form (taskAdded)="onTaskAdded()"></app-task-form>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-badge">
+        ✨ Nueva experiencia
+      </div>
+      <h1 class="hero-title">{{ title }}</h1>
+      <p class="hero-subtitle">
+        Organiza tu vida con estilo. Una experiencia moderna para gestionar tus tareas de forma intuitiva y elegante.
+      </p>
     </div>
-
-    <div class="list-section">
-      <app-task-list></app-task-list>
+    <div class="hero-decoration">
+      <div class="floating-card card-1"></div>
+      <div class="floating-card card-2"></div>
+      <div class="floating-card card-3"></div>
     </div>
+  </section>
+
+  <!-- Dashboard Layout -->
+  <main class="dashboard">
+    <!-- Quick Actions Panel -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <h3 class="sidebar-title">
+          <span class="icon">📝</span>
+          Nueva Tarea
+        </h3>
+        <app-task-form (taskAdded)="onTaskAdded()"></app-task-form>
+      </div>
+      
+      <div class="sidebar-card stats-card">
+        <h3 class="sidebar-title">
+          <span class="icon">📊</span>
+          Estadísticas
+        </h3>
+        <div class="stats-grid">
+          <div class="stat-item total">
+            <span class="stat-number">12</span>
+            <span class="stat-label">Total</span>
+          </div>
+          <div class="stat-item pending">
+            <span class="stat-number">8</span>
+            <span class="stat-label">Pendientes</span>
+          </div>
+          <div class="stat-item completed">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Completadas</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <section class="main-content">
+      <div class="content-header">
+        <h2 class="content-title">
+          <span class="icon">📋</span>
+          Mis Tareas
+        </h2>
+        <div class="content-actions">
+          <button class="btn btn-filter active">Todas</button>
+          <button class="btn btn-filter">Pendientes</button>
+          <button class="btn btn-filter">Completadas</button>
+        </div>
+      </div>
+      
+      <div class="tasks-container">
+        <app-task-list></app-task-list>
+      </div>
+    </section>
   </main>
 </div>
 
