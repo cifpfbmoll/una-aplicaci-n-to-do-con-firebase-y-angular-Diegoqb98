@@ -5,10 +5,10 @@ Aplicación web de gestión de tareas desarrollada con **Angular 18** y **Fireba
 ## 📸 Capturas de Pantalla
 
 ### Captura 1
-![Captura 1](./Capturas/Captura1.png)
+<img src="Capturas/Captura1.png" alt="Captura 1" width="800"/>
 
 ### Captura 2
-![Captura 2](./Capturas/Captura2.png)
+<img src="Capturas/Captura2.png" alt="Captura 2" width="800"/>
 
 ## 🎯 Características
 
